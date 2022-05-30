@@ -2,7 +2,7 @@
 ## Humanet for 3D Shape and Clothing Measurements
 
 
-pytorch implementation of the humanet, an auto-encoder, for **human shape space** with pose-independent, introduced in the CVPR 2020 paper:
+pytorch implementation of the humanet, an auto-encoder, for **human shape space** with pose-independent, introduced:
 
 **Estimation of 3D Body Shape and Clothing Measurements from Frontal- and Side-view Images** <br>
 Kundan Thota, Sungho Suh, Bo Zhou, Paul Lukowicz<br>
@@ -10,7 +10,7 @@ Kundan Thota, Sungho Suh, Bo Zhou, Paul Lukowicz<br>
 
 ## Installation
 
-We recommend creating a new virtual environment for a clean installation of the dependencies. All following commands are assumed to be executed within this virtual environment. The code has been tested on Ubuntu 18.04, python 3.6 and CUDA 10.0.
+We recommend creating a new virtual environment for a clean installation of the dependencies. All following commands are assumed to be executed within this virtual environment. The code has been tested on Scientific Linux 7.9, python 3.8 and CUDA 10.1.
 
 ```bash
 python3 -m venv humanenv
@@ -104,11 +104,11 @@ python measurement_evaluator.py --gender female/male
 **Clothing Measurement Error**:
 
 |       | male dataset      | female dataset        |
-| -----------:|---------:|------------:|
+| |||
 | chest   | 5.21 ± 5.23 | 3.37 ± 7.67 |
-| -----------:|---------:|------------:|
+||||
 | waist   | 2.28 ± 2.66 | 2.29 ± 2.36 | 
-| -----------:|---------:|------------:|
+||||
 | hip   | 2.8 ± 2.66 | 2.75 ± 2.61 | 
 
 **3D shape Error**:
