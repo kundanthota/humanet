@@ -101,7 +101,7 @@ python measurement_evaluator.py --gender female/male
 
 ### Performance
 
-**Clothing Measurement Error**:
+**Clothing Measurement Error** (in mm):
 
 |       | male dataset | female dataset |
 |:-----:|:------------:|:--------------:|
@@ -109,6 +109,7 @@ python measurement_evaluator.py --gender female/male
 | waist |  2.28 ± 2.66 |   2.29 ± 2.36  |
 |  hip  |  2.8 ± 2.66  |   2.75 ± 2.61  |
 
-**3D shape Error**:
-|       | male dataset      | female dataset        |
-| per vertex error   | 0.52 ± 1.01 | 0.48 ± 0.94 | 
+**3D shape Error** (in milli-units):
+|                  | male dataset | female dataset |
+|:----------------:|:------------:|:--------------:|
+| per vertex error |  0.52 ± 1.01 |   0.48 ± 0.94  | 
