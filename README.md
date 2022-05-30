@@ -24,6 +24,7 @@ pip install -U pip setuptools
 
 - Download the SMPL body model as described above and our [pre-trained demo model]() put the downloaded folder under the `weights` folder:
 
+```
     humanet
     ├── CALVIS
     |   └── ...
@@ -38,7 +39,7 @@ pip install -U pip setuptools
     |   ├── female_template.pkl                  
     │   ├── male_template.pkl               
     └── ...
-
+```
 
 Then run:
 
@@ -103,17 +104,10 @@ python measurement_evaluator.py --gender female/male
 **Clothing Measurement Error**:
 
 |       | male dataset      | female dataset        |
-| :------------ | :-------------: | :-------------: | 
 | chest   | 5.21 ± 5.23 | 3.37 ± 7.67 |
-| :------------ | :-------------: | :-------------: |
 | waist   | 2.28 ± 2.66 | 2.29 ± 2.36 | 
-| :------------ | :-------------: | :-------------: | 
 | hip   | 2.8 ± 2.66 | 2.75 ± 2.61 | 
-| :------------ | :-------------: | :-------------: | 
-
 
 **3D shape Error**:
 |       | male dataset      | female dataset        |
-| :------------ | :-------------: | :-------------: | 
 | per vertex error   | 0.52 ± 1.01 | 0.48 ± 0.94 | 
-| :------------ | :-------------: | :-------------: | 
