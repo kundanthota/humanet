@@ -104,8 +104,11 @@ python measurement_evaluator.py --gender female/male
 **Clothing Measurement Error**:
 
 |       | male dataset      | female dataset        |
+| -----------:|---------:|------------:|
 | chest   | 5.21 ± 5.23 | 3.37 ± 7.67 |
+| -----------:|---------:|------------:|
 | waist   | 2.28 ± 2.66 | 2.29 ± 2.36 | 
+| -----------:|---------:|------------:|
 | hip   | 2.8 ± 2.66 | 2.75 ± 2.61 | 
 
 **3D shape Error**:
