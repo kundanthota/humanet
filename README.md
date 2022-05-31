@@ -6,7 +6,7 @@ pytorch implementation of the humanet, an auto-encoder, for **human shape space*
 
 **Estimation of 3D Body Shape and Clothing Measurements from Frontal- and Side-view Images** <br>
 Kundan Thota, Sungho Suh, Bo Zhou, Paul Lukowicz<br>
-[Full paper]()
+[Full paper](https://arxiv.org/pdf/2205.14347.pdf)
 
 ## Installation
 
