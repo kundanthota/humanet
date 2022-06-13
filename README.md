@@ -22,7 +22,7 @@ pip install -U pip setuptools
 - Download the [SMPL body model](https://smpl.is.tue.mpg.de/) (Note: use the version 1.0.0 with 10 shape PCs), and place the renamed `{gender}_template.pkl` files for both genders and put them in `./smpl/`.
 ## Quick demo 
 
-- Download the SMPL body model as described above and our [pre-trained demo model]() put the downloaded folder under the `weights` folder:
+- Download the SMPL body model as described above and our [pre-trained demo model](https://drive.google.com/file/d/1BRjwWPn085pAsKRTYa2EyBQQ3SjaiU6U/view?usp=sharing) put the downloaded folder under the `weights` folder:
 
 ```
     humanet
