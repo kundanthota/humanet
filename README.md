@@ -71,7 +71,7 @@ will create scene images under data folder.
                   }.
     
 ```bash
-python utils/measures.py --path /path/to/the/obj/files --gender male/female.
+python utils/measures_.py --path /path/to/the/obj/files --gender male/female.
 ```
 
 ### Training
