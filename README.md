@@ -116,7 +116,7 @@ python measurement_evaluator.py --gender female/male
 
 ## Citations
 
-If you wanna use our code/work, please cite our work the following:
+If you wanna use our code/work in your reasearch, please consider citing:
 
 ```bash
 
