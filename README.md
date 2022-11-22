@@ -113,3 +113,21 @@ python measurement_evaluator.py --gender female/male
 |                  | male dataset | female dataset |
 |:----------------:|:------------:|:--------------:|
 | per vertex error |  0.52 ± 1.01 |   0.48 ± 0.94  | 
+
+## Citations
+
+If you wanna use our code/work, please cite our work the following:
+
+```bash
+
+@INPROCEEDINGS{9897520,  
+author={Prabhu Thota, Kundan Sai and Suh, Sungho and Zhou, Bo and Lukowicz, Paul},  
+booktitle={2022 IEEE International Conference on Image Processing (ICIP)},   
+title={Estimation Of 3d Body Shape And Clothing Measurements From Frontal-And Side-View Images},   
+year={2022},  
+volume={},  
+number={},  
+pages={2631-2635},  
+doi={10.1109/ICIP46576.2022.9897520}}
+
+```
