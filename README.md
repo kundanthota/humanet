@@ -10,7 +10,7 @@ Kundan Thota, Sungho Suh, Bo Zhou, Paul Lukowicz<br>
 
 ## Installation
 
-We recommend creating a new virtual environment for a clean installation of the dependencies. All following commands are assumed to be executed within this virtual environment. The code has been tested on Scientific Linux 7.9, python 3.8 and CUDA 10.1.
+We recommend creating a new virtual environment for a clean installation of the dependencies. All following commands are assumed to be executed within this virtual environment. The code has been tested on Scientific Linux 7.9, python 3.10 and CUDA 10.1.
 
 ```bash
 python3 -m venv humanenv
@@ -41,11 +41,35 @@ pip install -U pip setuptools
     └── ...
 ```
 
-Then run:
+Then steps to run for a demo:
+
+### step-1: 
+
+Run the following snippet to initially create SMPL starter files.
 
 ```bash
-python demo.py --front_img /path/to/512x512/front/image --side_img /path/to/512x512/side/image --gender male/female \
-                     --height (in cms) --weight (in kilos) --mesh_name /name/for/the/model.obj  
+python utils/preprocess_smpl.py --pickle /path/to/gender_pickle/file --gender male/female
+```
+### step-2: 
+
+Note: Please try to crop humans perfectly to fit in the image without additional objects for the better results as shown in the paper. Run following command to resize the RGB images to 512x512 resolution images.
+
+```bash
+python utils/image_utils.py --front /path/to/front/image --side /path/to/side/image
+```
+### step-3:
+
+please follow the following notebook to segment the images created from step-2.
+
+Jupyter notebook with the example: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ZHQ3beJP-7Pbq4I5Jsc8Co2dIkK31ALi?usp=sharing)
+
+### step-4:
+
+Run the following command to produce a demo. Note: Please input the images in same angles as used in the paper.
+
+```bash
+python demo.py --front_img /path/to/512x512/front/image/from/step-3 --side_img /path/to/512x512/side/image/from/step-3  --gender male/female \
+                     --height (in meters) --weight (in kilos) --mesh_name /name/for/the/model.obj  
 ```
 
 It will generate clothing measurements and the 3D model.

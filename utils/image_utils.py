@@ -2,26 +2,15 @@ from PIL import Image, ImageOps
 import matplotlib.pyplot as plt
 import os
 import argparse
+import warnings
+warnings.filterwarnings("ignore")
 
-if __name__ == "__main__":
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--input_folder", type=str, default='demo')
-    parser.add_argument("--output_folder", type=str, default='final_demo')
-    parser.add_argument("--resolution", type=int, default=512)
-    args = parser.parse_args()
-
-
-    try:
-        os.mkdir(args.output_folder)
-    except:
+class ImgSizer:
+    def __init__(self):
         pass
-
-    for subject in os.listdir(args.input_folder):
+    def sizer(self, imPath, angle):
         desired_size = 512
-        im_pth = f"{args.input_folder}/{subject}"
-
-        im = Image.open(im_pth)
+        im = Image.open(imPath)
         old_size = im.size  # old_size[0] is in (width, height) format
 
         ratio = float(desired_size)/max(old_size)
@@ -31,12 +20,26 @@ if __name__ == "__main__":
         # thumbnail is a in-place operation
 
         # im.thumbnail(new_size, Image.ANTIALIAS)
+        wpercent = (desired_size/float(im.size[0]))
+        hsize = int((float(im.size[1])*float(wpercent)))
+        im = im.resize((desired_size,hsize), Image.Resampling.LANCZOS)
 
-        im = im.resize(new_size, Image.ANTIALIAS)
-        # create a new image and paste the resized on it
+        old_size = im.size  # old_size[0] is in (width, height) format
 
-        new_im = Image.new("L", (desired_size, desired_size))
+        ratio = float(desired_size)/max(old_size)
+        new_size = tuple([int(x*ratio) for x in old_size])
+        # use thumbnail() or resize() method to resize the input image
+
+        new_im = Image.new('L',(desired_size, desired_size))
         new_im.paste(im, ((desired_size-new_size[0])//2,
                             (desired_size-new_size[1])//2))
+        new_im.save(f'{angle}_mask.png')
 
-        plt.imsave(f'{args.output_folder}/{subject}', new_im, cmap='gray')
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--front", type=str, required= True, help="path to front view image")
+    parser.add_argument("--side", type=str, required= True, help="path to side view image")
+    args = parser.parse_args()
+
+    ImgSizer().sizer(args.front, 'front')
+    ImgSizer().sizer(args.side, 'side')

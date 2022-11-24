@@ -30,7 +30,7 @@ class Human():
     
     def display_3D(self, X):
         predicted_vertices = self.template + np.dot(self.shape_dirs, np.squeeze(X))
-        trimesh.Trimesh(predicted_vertices, self.faces).show()
+        #trimesh.Trimesh(predicted_vertices, self.faces).show()
         return trimesh.Trimesh(predicted_vertices, self.faces)
     
     def predict_3D_vertices(self, target, actual):

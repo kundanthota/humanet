@@ -7,6 +7,8 @@ import numpy as np
 from joblib import load
 from sklearn.decomposition import PCA
 from measurement_evaluator import Human
+from utils.img2mask import Img2Mask
+from utils.image_utils import ImgSizer
 from utils.model import *
 from utils.torchloader import *
 import matplotlib.pyplot as plt
@@ -15,19 +17,33 @@ import trimesh
 def main():
     parser = argparse.ArgumentParser()
     
-    parser.add_argument("--front_img", type=str, required = True)
-    parser.add_argument("--side_img", type=str, required = True)
+    parser.add_argument("--experiment", type=str, required = True, help='Give experiment name')
+    parser.add_argument("--front", type=str, required= True, help="path to front view image")
+    parser.add_argument("--side", type=str, required= True, help="path to side view image")
     parser.add_argument("--gender", type=str, required = True)
     parser.add_argument("--height", type=float, required = True)
     parser.add_argument("--weight", type=float, required = True)
-    parser.add_argument("--feature_model", type=str, default='ae', required=True)
+    parser.add_argument("--feature_model", type=str, default='ae')
     parser.add_argument("--mesh_name", type=str, default='subject.obj')
-    parser.add_argument("--measurement_model", type=str, required=True)
+    parser.add_argument("--measurement_model", type=str, default='calvis')
 
     args = parser.parse_args()
 
-    front = np.array(Image.open(args.front_img).convert('L'))/255.0
-    side = np.array(Image.open(args.side_img).convert('L'))/255.0
+    try:
+        os.mkdir(os.path.join('data', 'demo'))
+    except:
+        pass
+    
+    try:
+        os.mkdir(os.path.join('data/demo', args.experiment))
+    except:
+        pass
+
+    
+    front = np.array(Image.open(args.front).convert('L'))/255.0
+    side = np.array(Image.open(args.side).convert('L'))/255.0
+    
+    print("Data preprocessed! \n Extracting Important features")
 
     if args.feature_model == 'ae':
         
@@ -62,7 +78,7 @@ def main():
         side_features = np.array(side_features)
 
         features = np.concatenate([front_features, side_features], axis = -1)
-    
+    print("Feature Extraction done \n Estimating Measurements")
     template = np.load(f'data/{args.gender}_template.npy')
     shape_dirs = np.load(f'data/{args.gender}_shapedirs.npy')
     faces =  np.load(f'data/faces.npy')
@@ -87,7 +103,8 @@ def main():
     print(f"Waist Circumference : {measurements[0][2]}")
 
     mesh = human.display_3D(shape)
-    mesh.export(args.mesh_name)
+    mesh.export(os.path.join(f'data/demo/{args.experiment}',args.mesh_name))
+    print("3D model saved!")
 
 
 if __name__ == "__main__":
