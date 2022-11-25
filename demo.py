@@ -7,7 +7,6 @@ import numpy as np
 from joblib import load
 from sklearn.decomposition import PCA
 from measurement_evaluator import Human
-from utils.img2mask import Img2Mask
 from utils.image_utils import ImgSizer
 from utils.model import *
 from utils.torchloader import *
