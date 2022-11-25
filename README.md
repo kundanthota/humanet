@@ -52,7 +52,7 @@ python utils/preprocess_smpl.py --pickle /path/to/gender_pickle/file --gender ma
 ```
 ### step-2: 
 
-Note: Please try to crop humans perfectly to fit in the image without additional objects for the better results as shown in the paper. Run following command to resize the RGB images to 512x512 resolution images.
+Note: Please try to square crop humans perfectly to fit in the image without additional objects for the better results as shown in the paper. Run following command to resize the RGB images to 512x512 resolution images.
 
 ```bash
 python utils/image_utils.py --front /path/to/front/image --side /path/to/side/image
