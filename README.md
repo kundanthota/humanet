@@ -82,7 +82,7 @@ python capture_images.py --resolution 512 --gender male/female --path path/to/.o
 ```
 will create scene images under data folder.
 
-    - create a train_test seperated json file in the following format
+    - create a train_test with 80/20 split json file in the following format
                   {
                       male:{
                           train:[sub_id1, sub_id2, ...],
